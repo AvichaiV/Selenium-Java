@@ -36,8 +36,6 @@ public class base {
 		else {
 			browserName = prop.getProperty("browser");
 		}
-		
-		
 		String useSeleniumGrid = prop.getProperty("usegrid");
 		
 		// Chrome
@@ -60,9 +58,8 @@ public class base {
 				System.setProperty("webdriver.chrome.driver", driverPath);
 				driver = new ChromeDriver(chromeOptions);
 			}
-			
-			
 		}
+		
 		// FireFox
 		else if (browserName.equalsIgnoreCase("FireFox")) {
 			if (useSeleniumGrid.contentEquals("1")) {
@@ -77,7 +74,6 @@ public class base {
 				driver = new FirefoxDriver();
 			}
 		}
-
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
@@ -88,10 +84,5 @@ public class base {
 		String destenetionFile = System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
 		FileUtils.copyFile(source,new File(destenetionFile));
 		return destenetionFile;
-		
-		
-		
-	
 	}
-
 }

@@ -7,7 +7,7 @@ public class ExtentReporterNG {
 	
 	static ExtentReports extent;
 	
-	public static ExtentReports GetReportObject() {
+	public static ExtentReports getReportObject() {
 		
 		String path=System.getProperty("user.dir")+"/reports/index.html" ;
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);

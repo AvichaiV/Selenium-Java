@@ -36,6 +36,8 @@ public class cartTest extends base{
 		cart newcart = new cart(driver);
 		log.info(newcart.getEmptyCart().getText());
 		Assert.assertEquals(newcart.getEmptyCart().getText(), "You cart is empty!");
+		log.info(newcart.getProceedToCheckout().getAttribute("class"));
+		Assert.assertEquals(newcart.getProceedToCheckout().getAttribute("class"), "disabled");
 		page.getCart().click();
 		
 		
@@ -50,6 +52,8 @@ public class cartTest extends base{
 		log.info("Testing Add To Cart");
 		pr.getAddToCart("Brocolli").click();
 		page.getCart().click();
+		log.info(newcart.getProceedToCheckout().getAttribute("class"));
+		Assert.assertNotEquals(newcart.getProceedToCheckout().getAttribute("class"), "disabled");
 		int itemLocation = newcart.findProductByNames("Brocolli");
 		log.info(itemLocation);
 		log.info(newcart.getProductName(itemLocation));

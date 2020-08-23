@@ -14,14 +14,10 @@ public class cart {
 	private By cartProducts = By.cssSelector("div.cart li.cart-item");
 	private By productName = By.cssSelector("div.cart li.cart-item p.product-name");
 	private By productQuantity = By.cssSelector("div.cart li.cart-item p.quantity");
-	private By SingelProductPrice = By.cssSelector("div.cart li.cart-item p.product-price");
-	private By QuantityProductPrice = By.cssSelector("div.cart li.cart-item p.amount");
-	private By RemoveFromCart = By.cssSelector("div.cart li.cart-item a.product-remove");
-	
-	
-
-	
-
+	private By singelProductPrice = By.cssSelector("div.cart li.cart-item p.product-price");
+	private By quantityProductPrice = By.cssSelector("div.cart li.cart-item p.amount");
+	private By removeFromCart = By.cssSelector("div.cart li.cart-item a.product-remove");
+	private By proceedToCheckout = By.xpath("//div[@class='cart']//div[@class=\"action-block\"]/button");
 	
 	public cart(WebDriver driver) {
 		this.driver = driver;
@@ -42,23 +38,24 @@ public class cart {
 	}
 	
 	public String getSingelProductPrice(int location) {
-		String tmp = driver.findElements(SingelProductPrice).get(location).getText();
+		String tmp = driver.findElements(singelProductPrice).get(location).getText();
 		return tmp;
 	}
 	
 	public String getQuantityProductPrice(int location) {
-		String tmp = driver.findElements(QuantityProductPrice).get(location).getText();
+		String tmp = driver.findElements(quantityProductPrice).get(location).getText();
 		return tmp;
 	}
 	
 	public void clickRemoveFromCart(int location) throws Exception {
-		driver.findElements(RemoveFromCart).get(location).click();
+		driver.findElements(removeFromCart).get(location).click();
 		Thread.sleep(1000);
-
-
-		
 	}
 	
+	public WebElement getProceedToCheckout() {
+		return driver.findElement(proceedToCheckout);
+	}
+		
 	public int findProductByNames (String name) {
 		List<WebElement> products = driver.findElements(cartProducts);
 		for ( int i=0;i < products.size();i++) {
@@ -69,29 +66,4 @@ public class cart {
 		}
 		return -1;
 	}
-	
-	
-	
-	
-	
-	/*
-	public static boolean test (WebDriver driver,String[] names) {
-		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
-		List<String> namesList =  Arrays.asList(names);
-		int itemNum = 0; 
-
-		for ( int i=0;i < products.size();i++){
-			if (namesList.contains(products.get(i).getText().split(" ")[0])){
-				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
-				itemNum ++;
-				if (namesList.size() == itemNum){
-					return true;
-					}
-				}
-		}
-		return false;
-	}
-	*/
-	
-	
 }

@@ -18,23 +18,19 @@ public class Listeners extends base implements ITestListener{
 
 	ExtentTest test;
 	private static Logger log = LogManager.getLogger(cartTest.class.getName());
-	ExtentReports extent =  ExtentReporterNG.GetReportObject();
+	ExtentReports extent =  ExtentReporterNG.getReportObject();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 	
 	
 	@Override
 	public void onTestStart(ITestResult result) {
-		
 		test = extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
-
-		
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		extentTest.get().log(Status.PASS, "Test Passed");
-		
 	}
 
 	@Override
@@ -43,13 +39,8 @@ public class Listeners extends base implements ITestListener{
 		String testMethodName = result.getMethod().getMethodName();
 		log.error(result.getThrowable());
 		try {
-			
 			WebDriver driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
 			extentTest.get().addScreenCaptureFromPath(getScreenshotPath(testMethodName,driver),result.getMethod().getMethodName());
-
-
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,32 +49,26 @@ public class Listeners extends base implements ITestListener{
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onTestFailedWithTimeout(ITestResult result) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
 		extent.flush();
-
-		
 	}
 
 }

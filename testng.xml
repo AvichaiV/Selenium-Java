@@ -14,4 +14,9 @@
 			<class name="Demo.E2ESelenium.cartTest" />
 		</classes>
 	</test> <!-- Test -->
+	<test name="checkoutTest">
+		<classes>
+			<class name="Demo.E2ESelenium.checkoutTest" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

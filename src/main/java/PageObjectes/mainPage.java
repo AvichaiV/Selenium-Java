@@ -51,8 +51,6 @@ public class mainPage {
 		return driver.findElement(noresultsparagraph);
 	}
 	
-	
-
 	public boolean addItem(String name,int num) {
 		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
 
