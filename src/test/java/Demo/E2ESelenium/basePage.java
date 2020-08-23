@@ -39,11 +39,13 @@ public class basePage extends base{
 		Assert.assertEquals(page.getNoResultsHeading().getText(), "Sorry, no products matched your search!");
 		log.info(page.getNoResultsPparagraph().getText());
 		Assert.assertEquals(page.getNoResultsPparagraph().getText(), "Enter a different keyword and try.");
+		page.getsearchbox().clear();
+		page.getsearchbox().sendKeys(" ");
 
 	}
 	
 	@Test()
-	public void  testSerchProduct() {
+	public void  testSerchProduct() throws Exception {
 		driver.get(prop.getProperty("url"));
 		log.info("navigate to home page");
 		mainPage page = new mainPage(driver);
@@ -63,6 +65,8 @@ public class basePage extends base{
 		page.getsearchbox().sendKeys(Keys.BACK_SPACE);
 		log.info(page.getNumOfProducts());
 		Assert.assertEquals(page.getNumOfProducts(),7);
+		page.getsearchbox().clear();
+		page.getsearchbox().sendKeys(" ");
 	}
 	
 	@Test(dependsOnMethods={"testSerchProduct"})

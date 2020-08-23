@@ -67,8 +67,10 @@ public class mainPage {
 		return false;
 	}
 	
-	public int getNumOfProducts() {
+	public int getNumOfProducts() throws Exception {
+		
 		List<WebElement> products = driver.findElements(By.xpath("//div[@class='product']"));
+		Thread.sleep(1000);
 		return products.size();
 	}
 	
