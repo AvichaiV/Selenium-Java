@@ -27,7 +27,6 @@ mvn test
 ### Properties
 You can set the way you run the test:
 browser = <the browser you want to run on> [chrome/FireFox]
-url = https://www.rahulshettyacademy.com/seleniumPractise/#/
 usegrid = <to use local or selenium grid> [0-local/1-grid]
 getpropfrommven = <get the properties from maven> 
 	mvn -Dbrowser=chrome/FireFox]

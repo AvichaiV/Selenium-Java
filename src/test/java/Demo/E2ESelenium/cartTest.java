@@ -39,9 +39,8 @@ public class cartTest extends base{
 		log.info(newcart.getProceedToCheckout().getAttribute("class"));
 		Assert.assertEquals(newcart.getProceedToCheckout().getAttribute("class"), "disabled");
 		page.getCart().click();
-		
-		
 	}
+	
 	@Test(dependsOnMethods={"testEmptyCart"})
 	public void  testAddtoCart() {
 		driver.get(prop.getProperty("url"));
