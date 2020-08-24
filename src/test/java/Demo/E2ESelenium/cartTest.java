@@ -135,7 +135,6 @@ public class cartTest extends base{
 		newcart.clickRemoveFromCart(itemLocation2);
 		Assert.assertEquals(newcart.findProductByNames("Cucumber"),-1);
 		page.getCart().click();
-		
 	}
 	
 	

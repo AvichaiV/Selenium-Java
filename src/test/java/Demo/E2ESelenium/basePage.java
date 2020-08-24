@@ -11,8 +11,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.google.inject.Key;
-
 import PageObjectes.mainPage;
 import PageObjectes.products;
 import Resources.base;
