@@ -6,9 +6,8 @@
 * Extent Reporting
 
 
-### Prerequisites
-This code was writen to run on a linux os. 
-*Maven
+## Prerequisites
+This code was writen to run on a **linux os** using **Maven**.
 
 ### Installing
 clean maven 
@@ -25,10 +24,10 @@ mvn test
 ```
 ### Properties
 * You can set the way you run the test:
-* browser = (the browser you want to run on) [chrome/FireFox].
-* usegrid = (to use local or selenium grid) [0-local/1-grid].
-* getpropfrommven = (get the properties from maven) [mvn -Dbrowser=chrome/FireFox]
+* browser = (the browser you want to run on) __[chrome/FireFox]__.
+* usegrid = (to use local or selenium grid) __[0-local/1-grid]__.
+* getpropfrommven = (get the properties from maven) __[mvn -Dbrowser=chrome/FireFox]__
 
 ### Reports View
-after test finishes you can see the logs under logs/ folder
+After test finishes you can see the logs under logs/ folder
 and to open the Extent report open "index.htm" under the reports/ folder
